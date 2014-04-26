@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Preaudit</title>
+</head>
+<body>
+
+	<!-- Rendering menu  -->
+	<%= render :partial => "layouts/menu" %>
+
+	<!-- Main Content -->
+	
+
+
+	<div class="container" , style="height:900px" >	
+
+		<% @audits.each do |a| %>
+		<div class="panel panel-primary">
+
+			<div class="panel-heading">
+				<%= a.title %>
+			</div>
+
+			<div class="panel-body">
+				Type : <%= a.a_type %>
+				<br />
+				Start Date : <%= a.start_date %>
+				<br />
+				End Date : <%= a.end_date %>
+				<br />
+				<br />
+				<%= link_to " Add Finding", new_auditinit_question_path(a.id), class: "btn btn-default btn-sm pull-right" %> 
+			</div>
+		</div>
+		<% end %>
+	</div>
+
+
+</body>
+</html>

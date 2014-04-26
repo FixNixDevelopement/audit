@@ -1,0 +1,34 @@
+<div class="tab-pane active" id="organization">
+              <br />
+              <p class="mypara">Step 1 0f 4</p>
+<div class="form-inputs">
+      				  <div class="input-sm">
+        				  <div class="col-lg-7">
+			     		    	<%= f.label "Audit Title" %>
+			       				<%= f.text_field :title, :class =>  "form-control" %>
+			  	    	  </div>
+			        	</div>
+    				    <br/><br/>
+    				    <div class="input-sm">
+        			    <div class="col-lg-7">
+    						    <%= f.label "Audit Purpose" %>
+							      <%= f.text_area :purpose , :rows => 2, :cols => 15 , :class =>  "form-control" %>
+   			    		  </div>
+    				  	</div>
+    				  	<br/><br/>
+    				  	<div class="input-sm">
+         					<div class="col-lg-7">
+      							<%= f.label "Audit Scope" %>
+						    		<%= f.text_area :scope , :rows => 2, :cols => 25 ,    :class =>  "form-control" %>
+      						</div>
+      					</div>
+      					<br/><br/>
+      					<div class="input-sm">
+          				<div class="col-lg-7">
+      							<%= f.label "Audit Summary" %>
+						    		<%= f.text_area :summary , :rows => 2, :cols => 25 ,    :class =>  "form-control"%>
+						      </div>
+      					</div>
+       					<br/><br/>                   
+    			    </div>
+              </div>

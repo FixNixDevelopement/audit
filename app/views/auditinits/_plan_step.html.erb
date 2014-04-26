@@ -1,0 +1,56 @@
+            <div class="tab-pane" id="client">
+              <br />
+              <p class="mypara">Step 2 0f 4</p>
+
+<div class="form-inputs">
+                <div class="input-sm">
+                  <div class="col-lg-10">
+                    <%= f.label "Client" %>
+                    <%= f.text_field :client_name  ,:class =>  "form-control input-sm" %>
+                  </div>
+                </div>
+                <br/><br/>
+    		  		  <div class="input-sm">
+          			  <div class="col-lg-10">
+					        	<%= f.label "Type" %>
+                    <%= f.collection_select :a_type , @atype, :v_name ,:v_name , {}, {:class =>  "drop-down"} %>
+				    	    </div>
+			          </div>
+                 <br/><br/>
+                <div class="input-sm">
+                  <div class="col-lg-10">
+                    <%= f.label "Department" %>
+                    <%= f.collection_select :department , @department, :v_name ,:v_name , {}, {:class =>  "drop-down"} %>
+                  </div>
+                </div>
+                 <br/><br/>
+                <div class="input-sm">
+                  <div class="col-lg-10">
+                    <%= f.label "Compliance" %>
+                    <%= f.collection_select :c_type , @compliance, :v_name ,:v_name , {}, {:class =>  "drop-down"} %>
+                  </div>
+                </div>
+    				    <br/><br/>
+    				    <div class="input-sm">
+        			    <div class="col-lg-10">
+    					     	<%= f.label "Location" %> 
+                    <%= f.collection_select :location , @location, :v_name ,:v_name , {}, {:class =>  "drop-down"}  %>
+   			    		  </div>
+    				  	</div>
+    					  <br/><br/>
+    					  <div class="input-sm">
+         					<div class="col-lg-3">
+							      <%= f.label "Start Date" %>
+							      <%= f.datepicker :start_date, :id => :datepicker ,:class =>  "form-control input-sm" %>
+      						</div>
+      				  </div>
+      				  <br/><br/>
+      				  <div class="input-sm">
+          			  <div class="col-lg-3">						
+							   	  <%= f.label "End Date " %>
+								    <%= f.datepicker :end_date, :id => :datepicker1, :class =>  "form-control input-sm" %>	
+						      </div>
+      				  </div>
+       				  <br/><br/>                   
+    				  </div>
+              </div>

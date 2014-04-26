@@ -1,0 +1,206 @@
+<html>
+<head>
+  <title>Calendar</title>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    // calender showing all audits with start and end dates
+    $('#full_calendar').fullCalendar({
+    // eventClick: [function(calEvent,jsEvent,view){}],
+  events: 
+  [
+    <% @auditinits.each do |audit| %>
+    {
+      title  : "<%= audit.title + "::Ended" %>",
+      start  : "<%= audit.end_date %>",
+      end    : "<%= audit.end_date %>",
+      color: "brown",
+      url : "/auditinits/",
+    },
+    {
+      title  : "<%= audit.title + "::Started" %>",
+      start  : "<%= audit.start_date %>",
+      end    : "<%= audit.start_date %>",
+      color :"green",
+      url : "/auditinits/",
+    },
+   <% end %>
+  ],
+  eventClick: function(event) {
+        if (event.url) {
+          alert('hiiiiiiiiiiiiiiii');
+            window.open(event.url);
+            return false;
+        }
+    },
+
+
+
+      height: 650,
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay'
+      },
+      buttonIcon: {
+        prev: 'circle-triangle-w',
+          next: 'circle-triangle-e'
+      },
+      buttonText: {
+        month: 'Month',
+        agendaWeek: 'Week',
+        agendaDay: 'Day',
+        today: 'Today'
+      },
+      firstDay: 1, 
+      isRTL :false,
+      // hiddenDays : [0,6],
+      weekMode : 'variable',
+      weekNumbers : false,
+      handleWindowResize :true,
+      allDaySlot: true,
+      allDayText: 'Today',
+      year: 2014,
+      month: 3
+
+    });
+
+
+    // calender showing all audit starting dates
+    $('#cal_audit_startdate').fullCalendar({
+// eventClick: [function(calEvent,jsEvent,view){}],
+  events: 
+  [
+    <% @auditinits.each do |audit| %>
+    {
+      title  : "<%= audit.title + "::Started" %>",
+      start  : "<%= audit.start_date %>",
+      end    : "<%= audit.start_date %>",
+      color :"green",
+      url : "/auditinits/",
+    },
+   <% end %>
+  ],
+  eventClick: function(event) {
+        if (event.url) {
+          alert('hiiiiiiiiiiiiiiii');
+            window.open(event.url);
+            return false;
+        }
+    },
+      height: 650,
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay'
+      },
+      buttonIcon: {
+        prev: 'circle-triangle-w',
+          next: 'circle-triangle-e'
+      },
+      buttonText: {
+        month: 'Month',
+        agendaWeek: 'Week',
+        agendaDay: 'Day',
+        today: 'Today'
+      },
+      firstDay: 1, 
+      isRTL :false,
+      // hiddenDays : [0,6],
+      weekMode : 'variable',
+      weekNumbers : false,
+      handleWindowResize :true,
+      allDaySlot: true,
+      allDayText: 'Today',
+      year: 2014,
+      month: 3
+
+    });
+
+    // calender showing all audit end dates
+    $('#cal_audit_enddate').fullCalendar({
+    // eventClick: [function(calEvent,jsEvent,view){}],
+  events: 
+  [
+    <% @auditinits.each do |audit| %>
+    {
+      title  : "<%= audit.title + "::Ended" %>",
+      start  : "<%= audit.end_date %>",
+      end    : "<%= audit.end_date %>",
+      color: "brown",
+      url : "/auditinits/",
+    },
+   <% end %>
+  ],
+  eventClick: function(event) {
+        if (event.url) {
+          alert('hiiiiiiiiiiiiiiii');
+            window.open(event.url);
+            return false;
+        }
+    },
+
+
+
+      height: 650,
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay'
+      },
+      buttonIcon: {
+        prev: 'circle-triangle-w',
+          next: 'circle-triangle-e'
+      },
+      buttonText: {
+        month: 'Month',
+        agendaWeek: 'Week',
+        agendaDay: 'Day',
+        today: 'Today'
+      },
+      firstDay: 1, 
+      isRTL :false,
+      // hiddenDays : [0,6],
+      weekMode : 'variable',
+      weekNumbers : false,
+      handleWindowResize :true,
+      allDaySlot: true,
+      allDayText: 'Today',
+      year: 2014,
+      month: 3
+
+    });
+
+  });
+  </script>
+</head>
+<body>
+
+  <!-- Rendering menu  -->
+  <%= render :partial => "layouts/menu" %>
+
+<%= form_tag setmode_path, :method => "post" do%>
+  select mode:
+      <%= select_tag "mode", options_for_select([['Default View',"0"],['audits by start date',"1"],['audits by end date',"2"]]) %>
+    <%= submit_tag "Filter calender" %>
+  <% end %>
+
+
+  <!-- Calendar Section -->
+  <% if (modevalue == '0') %>
+    <div id='full_calendar'>
+    </div>
+  <% elsif modevalue == '1' %>
+    <div id='cal_audit_startdate'>
+    </div>
+  <% elsif modevalue == '2' %>
+    <div id='cal_audit_enddate'>
+    </div>
+  <% else %>
+  <div id='full_calendar'>
+    </div>
+  <% end %>
+
+  <!-- End of Calendar -->
+
+</body>
+</html>

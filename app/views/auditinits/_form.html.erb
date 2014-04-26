@@ -1,0 +1,194 @@
+
+<script type="text/javascript">
+
+// date picker
+  $(function() {
+     $( "#datepicker" ).datepicker({
+      dateFormat: "dd-mm-yy"    });
+     $( "#datepicker1" ).datepicker({
+      dateFormat: "dd-mm-yy"    });     
+  });
+
+</script>
+
+<%= form_for(@auditinit) do |f| %>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">Create New Audit</div>
+    <div class="panel-body" style="height:900px">
+      <div class="col-xs-12 col-sm-6 col-md-8 col-lg-offset-1">
+
+      <!-- Error Message -->
+
+        <% if @auditinit.errors.any? %>
+          <div class="container" id="error_explanation">
+            <div class="row-fluid">
+              <div class="col-lg-5 col-lg-offset-3">
+                <div class="well well-sm">
+                  <h2><%= pluralize(@auditinit.errors.count, "error") %> prohibited this businessunit from being saved:</h2>
+                    <ul>  
+                      <% @auditinit.errors.full_messages.each do |msg| %>
+                        <li><%= msg %></li>
+                      <% end %>
+                    </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+      <div class="container offset well">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#organization" data-toggle="tab">Audit</a></li>
+          <li><a href="#client" data-toggle="tab">Plan</a></li>
+          <li><a href="#team" data-toggle="tab">Team </a></li>
+          <li><a href="#confirmation" data-toggle="tab">Confirmation</a></li>
+        </ul>
+            
+      <div class="tab-content">
+        <div class="tab-pane active" id="organization">
+        <br />
+          <p class="mypara">Step 1 0f 4</p>
+            <div class="form-inputs">
+              <div class="input-sm">
+                  <div class="col-lg-10">
+                <%= f.label "Audit Title" %>
+              <%= f.text_field :title, :class =>  "form-control" %>
+                </div>
+                </div>
+               <br/><br/>
+               <div class="input-sm">
+                   <div class="col-lg-10">
+                   <%= f.label "Audit Purpose" %>
+                 <%= f.text_area :purpose , :rows => 5, :cols => 25 , :class =>  "form-control" %>
+                    </div>
+              </div>
+              <br/><br/>
+              <div class="input-sm">
+                  <div class="col-lg-10">
+                    <%= f.label "Audit Scope" %>
+                <%= f.text_area :scope , :rows => 5, :cols => 25 ,    :class =>  "form-control" %>
+                  </div>
+                </div>
+                <br/><br/>
+                <div class="input-sm">
+                    <div class="col-lg-10">
+                    <%= f.label "Audit Summary" %>
+                <%= f.text_area :summary , :rows => 5, :cols => 25 ,    :class =>  "form-control"%>
+                </div>
+                </div>
+                <br/><br/>                   
+            </div>
+
+  
+        </div>
+
+        <div class="tab-pane" id="client">
+        <br />
+        <p class="mypara">Step 2 0f 4</p>
+            <div class="form-inputs">
+            <div class="input-sm">
+                  <div class="col-lg-10">
+                <%= f.label "Client Name" %>
+              <%= f.text_field :client_name  ,:class =>  "form-control input-sm" %>
+                </div>
+                </div>
+               <br/><br/>
+              <div class="input-sm">
+                  <div class="col-lg-10">
+                <%= f.label "Type" %>
+              <%= f.collection_select :a_type, @atype, :v_name ,:v_name %>
+                </div>
+                </div>
+               <br/><br/>
+               <div class="input-sm">
+                  <div class="col-lg-10">
+                <%= f.label "Type" %>
+              <%= f.collection_select :c_type, @compliance, :v_name ,:v_name %>
+                </div>
+                </div>
+               <br/><br/>
+               <div class="input-sm">
+                  <div class="col-lg-10">
+                    <%= f.label "Department" %>
+                    <%= f.collection_select :department , @department, :v_name ,:v_name %> 
+                  </div>
+              </div>
+              <br/><br/>
+              <div class="input-sm">
+                  <div class="col-lg-10">
+                    <%= f.label "Location" %>
+                    <%= f.collection_select :location , @location, :v_name ,:v_name %> 
+                  </div>
+              </div>
+              <br/><br/>
+              <div class="input-sm">
+                  <div class="col-lg-4">
+                 <%= f.label "Start Date" %>
+                 <%= f.datepicker :start_date, :id => :datepicker ,:class =>  "form-control input-sm" %>
+                  </div>
+                </div>
+                <br/><br/>
+                <div class="input-sm">
+                    <div class="col-lg-4">            
+                <%= f.label "End Date " %>
+                <%= f.datepicker :end_date, :id => :datepicker1, :class =>  "form-control input-sm" %>  
+                </div>
+                </div>
+                <br/><br/>                   
+            </div>
+        </div>
+
+        <div class="tab-pane" id="team">
+        <br />
+        <p class="mypara">Step 3 0f 4</p>
+            <div class="form-inputs">
+              <div class="input-sm">
+                  <div class="col-lg-10">
+                <%= f.label "Auditor Name" %>
+              <%= f.text_field :auditor_name   ,:class =>  "form-control"%>
+                </div>
+                </div>
+               <br/><br/>
+               <div class="input-sm">
+                   <div class="col-lg-10">
+              <%= f.label "Auditor Email" %>
+              <%= f.text_field :auditor_email  ,:class =>  "form-control"%>
+                    </div>
+              </div>
+              <br/><br/>
+              <div class="input-sm">
+                  <div class="col-lg-10">
+                 <%= f.label "Auditee Name" %>
+                 <%= f.text_field :auditee_name ,:class =>  "form-control" %>
+                  </div>
+                </div>
+                <br/><br/>
+                <div class="input-sm">
+                    <div class="col-lg-10">           
+                <%= f.label "Auditee Email" %>
+                <%= f.text_field :auditee_email ,:class =>  "form-control" %>
+                </div>
+                </div>
+                <br/><br/>                   
+            </div>
+        </div>
+
+        <div class="tab-pane" id="confirmation">
+        <br />
+        <p class="mypara">Step 4 0f 4</p>
+            <div class="form-inputs">
+              <div class="input-sm">
+                <div class="col-lg-10">
+                <%= f.submit 'Submit',  :class => "btn btn-success btn-sm" %>
+                </div>
+              </div>
+               <br/><br/>      
+            </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

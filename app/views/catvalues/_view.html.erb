@@ -1,0 +1,62 @@
+<style type="text/css">
+  table { width: 100%; }
+  td.colA { width: 50%; }
+  td.colB { width: 50%; }
+</style>
+
+<br /><br /><br />
+
+
+<div>
+	<table class="table table-bordered table-hover" width="647">
+		<tr>
+			<th>Department</th>
+			<th>Action</th>
+		</tr>
+		<% @departments.each do |d| %>
+		<tr>
+			<td class="colA">
+				<%= d.v_name %>
+			</td>
+			<td class="colB">
+				<%= link_to 'Destory' , d , method: :delete, data: {confirm: 'Are you sure?'} %>
+			</td>
+		</tr>
+		<% end %>
+	</table>
+
+	<table class="table table-bordered table-hover" width="647">
+		<tr>
+			<th>Location</th>
+			<th>Action</th>
+		</tr>
+
+		<% @locations.each do |l| %>
+		<tr>
+			<td class="colA">
+				<%= l.v_name %>
+			</td class="colB">
+			<td>
+				<%= link_to 'Destory' , l , method: :delete, data: {confirm: 'Are you sure?'} %>
+			</td>
+		</tr>
+		<% end %>
+	</table>
+
+	<table class="table table-bordered table-hover" width="647">
+		<tr>
+			<th>Team</th>
+			<th>Action</th>
+		</tr>
+		<% @teams.each do |t| %>
+		<tr>
+			<td class="colA">
+				<%= t.v_name %>
+			</td>
+			<td class="colB">
+				<%= link_to 'Destory' , t , method: :delete, data: {confirm: 'Are you sure?'} %>
+			</td>			
+		</tr>
+		<% end %>
+	</table>
+</div>

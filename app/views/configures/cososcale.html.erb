@@ -1,0 +1,122 @@
+<html>
+<head>
+	<title>Coso Scale</title>
+
+	<style>
+		table, td
+		{
+			font:100% Arial, Helvetica, sans-serif; 
+		}
+		table{width:100%;border-collapse:collapse;margin:1em 0;}
+		th, td{text-align:left;padding:.5em;border:1px solid #fff;}
+		th{background:#328aa4 url(tr_back.gif) repeat-x;color:#fff;}
+		td{background:#e5f1f4;}
+
+		tr.even td{background:#e5f1f4;}
+		tr.odd td{background:#f8fbfc;}
+
+		th.over, tr.even th.over, tr.odd th.over{background:#4a98af;}
+		th.down, tr.even th.down, tr.odd th.down{background:#bce774;}
+		th.selected, tr.even th.selected, tr.odd th.selected{}
+
+		td.over, tr.even td.over, tr.odd td.over{background:#ecfbd4;}
+		td.down, tr.even td.down, tr.odd td.down{background:#bce774;color:#fff;}
+		td.selected, tr.even td.selected, tr.odd td.selected{background:#bce774;color:#555;}
+
+		td.empty, tr.odd td.empty, tr.even td.empty{background:#fff;}
+
+		th.red { background-color: #B40404;}
+		th.yellow {background-color: #FFFF00;}
+		th.blue{background-color: #013ADF;}
+		th.green {background-color: #21610B;}
+		th.grey {background-color: #585858;}
+	</style>
+
+</head>
+<body>
+	<%= render :partial => "layouts/menu" %>
+	<div class="panel panel-primary">
+		<center>
+			<h1>Coso Ratings</h1>
+
+			<table style="width:600px">
+				<tr>
+  					<th>Level</th>
+  					<th>Compliance %</th>			
+  				</tr>
+				<tr>
+				<tr>	
+  					<td>0</td>
+  					<td>0 %</td>		
+  				</tr>
+  				<tr>
+				<tr>
+  					<td>1</td>
+	  				<td>less than 0% - 50%</td>		
+  				</tr>
+  				<tr>
+				<tr>
+	  				<td>2</td>
+  					<td>50% - 70% </td>		
+  				</tr>
+  				<tr>
+				<tr>
+  					<td>3</td>
+  					<td>70% - 90%</td>		
+  				</tr>
+  				<tr>
+				<tr>
+	  				<td>4</td>
+  					<td>90% - 100%</td>		
+  				</tr>
+	  			
+			</table>
+	
+			<table cellspacing="0" cellpadding="0" style="width:600px">			
+				<tr><th class="red">Cos Level 1</th></tr>
+				<tr></tr>
+				<tr><td>Weak internal-control environment or</td></tr>
+				<tr><td>•Ineffective risk assessment or</td></tr>
+				<tr><td>Week Internal-Control environment and Ineffective risk assessment </td></tr>
+			</table>
+
+			<table cellspacing="0" cellpadding="0" style="width:600px">			
+				<tr><th class="yellow">Cos Level 1</th></tr>
+
+				<tr><td>Marginal Internal-Control environment or</td>
+				</tr>
+				<tr><td>Marginal risk assessment or</td></tr>
+				<tr><td>Marginal internal-control environment and marginal risk assessment and monitoring</td></tr>
+				<tr><td>Marginal implementation of internal-control activities, communication and monitoring</td></tr>
+			</table>
+
+			<table cellspacing="0" cellpadding="0" style="width:600px">			
+				<tr><th class="blue">Cos Level 3</th></tr> 
+
+				<tr><td>Strong Internal-Control environment or</td></tr>
+				<tr><td>Effective risk assessment but</td></tr>
+				<tr><td>Marginally effective implementation of internal-control activities, communication and monitoring</td></tr>
+				<tr><td>Marginal implementation of internal-control activities, communication and monitoring</td></tr>
+			</table>
+
+			<table cellspacing="0" cellpadding="0" style="width:600px">			
+				<tr><th class="green">Cos Level 4</th></tr>
+
+				<tr><td>Strong Internal-Control environment or</td></tr>
+				<tr><td>Effective risk assessment and</td></tr>
+				<tr><td>Effective implementation of internal-control activities, communication and monitoring</td></tr>
+	
+			</table>
+
+			<table cellspacing="0" cellpadding="0" style="width:600px">			
+				<tr><th class="grey">NA</th></tr>
+
+				<tr><td>Controls which are not applicable</td></tr>
+			</table>
+	
+		</center>
+
+
+	</div>
+</body>
+</html>

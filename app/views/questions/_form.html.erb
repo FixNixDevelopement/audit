@@ -1,0 +1,23 @@
+<%= form_for(@question) do |f| %>
+	
+	<% if @question.errors.any? %>
+          <div class="container" id="error_explanation">
+            <div class="row-fluid">
+              <div class="col-lg-5 col-lg-offset-3">
+                <div class="well well-sm">
+                  <h2><%= pluralize(@question.errors.count, "error") %> prohibited this businessunit from being saved:</h2>
+                    <ul>  
+                      <% @question.errors.full_messages.each do |msg| %>
+                        <li><%= msg %></li>
+                      <% end %>
+                    </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+    <%= f.hidden_field :auditinit_id, :value => params[:auditinit_id] %>
+    <%= f.text_area :question, :rows => 5, :cols => 25 , :placeholder => 'Enter your question' %>
+    <%= f.submit 'Add Question' %>
+
+<% end %>

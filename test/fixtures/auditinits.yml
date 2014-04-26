@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  a_title: MyString
+  a_purpose: MyString
+  a_scope: MyString
+  a_summary: MyString
+  a_start_date: 2014-04-01
+  a_end_date: 2014-04-01
+  a_close_date: 2014-04-01
+  a_target_date: 2014-04-01
+  a_note: MyText
+
+two:
+  a_title: MyString
+  a_purpose: MyString
+  a_scope: MyString
+  a_summary: MyString
+  a_start_date: 2014-04-01
+  a_end_date: 2014-04-01
+  a_close_date: 2014-04-01
+  a_target_date: 2014-04-01
+  a_note: MyText

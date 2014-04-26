@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Audit</title>
+</head>
+<body>
+
+
+	<!-- Rendering menu  -->
+	<%= render :partial => "layouts/menu" %>
+
+	<!-- Main -->
+
+	<h1 class="myfont">Audit Initation</h1>
+	<div class="container" , style="height:900px" >	
+
+		<div class="btn btn-default btn-sm pull-right">
+			<span class="glyphicon glyphicon-plus"></span>
+			<%= link_to 'New' , new_auditinit_path %>
+		</div>
+
+		<br /> 
+		<br />
+
+		<% @auditinits.each do |auditinit| %>
+		<div class="panel panel-primary">
+
+			<div class="panel-heading">
+				<%= auditinit.title %>
+			</div>
+
+			<div class="panel-body">
+				Type : <%= auditinit.a_type %>
+				<br />
+				Start Date : <%= auditinit.start_date %>
+				<br />
+				End Date : <%= auditinit.end_date %>
+				<br />
+				<br />
+				<%= link_to 'Manage Audit', edit_auditinit_path(auditinit), :class =>"btn btn-default btn-sm pull-right"  %>
+				<%= link_to 'Review', auditinit  ,:class =>  "btn btn-default btn-sm pull-right"%>
+				<%= link_to 'Delete', auditinit, method: :delete, data: { confirm: 'Are you sure?' }, :class =>  "btn btn-default btn-sm pull-right" %>
+				
+			</div>
+		</div>
+		<% end %>
+	</div>
+
+</body>
+</html>
+
+
+

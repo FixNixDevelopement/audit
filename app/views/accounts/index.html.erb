@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add New User</title>
+  <style type="text/css">
+    .form-group.last { margin-bottom:0px; }
+  </style>
+</head>
+<body>
+
+
+<!-- Rendering menu  -->
+  <%= render :partial => "layouts/menu" %>
+
+
+  <!-- Main -->
+
+
+  <%= form_for(@account) do |f| %>
+   
+    
+      <div class="panel panel-primary">
+
+        <div class="panel-heading">Settings</div>
+        <div class="container offset well">
+          <div class="panel-body" style="height:900px">
+            <h3 class="mypara">User Management</h3> 
+              <div class="form-inputs">
+                <div class="input-sm">
+                  <div class="col-lg-5">
+                    <%= f.label :name %><br />
+                    <%= f.text_field :name  , :class =>  "form-control"%>
+                  </div>
+                </div>
+                <br/><br/><br/>
+                <%= f.fields_for :users do |user_form| %>
+                  <div class="input-sm">
+                    <div class="col-lg-5">
+                      <%= user_form.label :email %><br />
+                      <%= user_form.email_field :email , :class =>  "form-control" %>              
+                    </div>
+                  </div>
+                  <br/><br/><br/>
+                  <div class="input-sm">
+                    <div class="col-lg-5">
+                      <%= user_form.label :password %><br />
+                      <%= user_form.password_field :password , :class =>  "form-control" %>
+                    </div>
+                  </div>  
+                  <br/><br/><br/>
+                  <div class="input-sm">
+                    <div class="col-lg-5">
+                      <%= user_form.label :password_confirmation %><br />
+                      <%= user_form.password_field :password_confirmation , :class =>  "form-control" %>
+                    </div>
+                  </div>
+                <% end %>
+                <br/><br/><br/>
+                <div class="input-sm">
+                  <div class="col-lg-5">
+                  <%= f.submit "Create account" ,  :class => "btn btn-success btn-sm" %>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</body>
+</html>

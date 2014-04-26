@@ -1,0 +1,7 @@
+    <div id="dashboard-center">
+      <%= pie_chart Auditinit.group(:a_type).count %>
+    </div>
+
+    <div id="dashboard-right">
+    <%= pie_chart Auditinit.group(:c_type).count %>
+    </div>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Configure</title>
+</head>
+<body>
+
+  <!-- Rendering menu  -->
+    <%= render :partial => "layouts/menu" %>
+
+
+    <!-- Main -->
+<% @message = flash[:message] %>
+  <% if (@message != nil and @message.length > 0) %>
+    <div class="container">
+      <div class="col-lg-5 col-lg-offset-1">
+        <div class="alert alert-success fade in">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <%= @message %> 
+        </div>
+      </div>
+      </div>
+  <% end %>
+
+
+    <div class="panel panel-primary">
+    <div class="panel-heading">Settings</div>
+    <div class="container offset well">
+      <div class="panel-body" style="height:900px">
+        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-offset-1">
+          <h1> Configure</h1>
+          <div>
+            <ul class="nav nav-tabs">
+            <li class="active"><a href="#all" data-toggle="tab">Configure</a></li>
+                  <li><a href="#dep" data-toggle="tab">Department</a></li>
+                  <li><a href="#location" data-toggle="tab">Location</a></li>
+                  <li><a href="#team" data-toggle="tab">Team</a></li>
+              </ul>
+            <div class="tab-content">
+
+
+            <div class="tab-pane active" id="all">  
+              <%= render 'view' %>
+            </div>
+
+            <!-- End of table -->
+
+            <!-- Department code Starts here -->
+
+              <div class="tab-pane" id="dep">
+                <div class="input-sm">
+                  <p class="mypara">Add Department</p>
+                  <div class="col-lg-6">
+                      <%= form_for(@catvalue) do |f| %>
+                    <%= f.hidden_field :categories_id , :value => '1' %>
+                    <%= f.text_field :v_name ,:class =>  "form-control" %>
+                  </div>
+                  <br /><br /><br />
+                  <%= f.submit 'Add',  :class => "btn btn-success btn-sm" %>
+                  <% end  %>
+                </div>    
+              </div>
+
+            <!-- Department code ends here -->
+
+            <!-- Location code start here -->
+              <div class="tab-pane" id="location">
+                <div class="input-sm">
+                  <p class="mypara">Add Location</p>
+                  <div class="col-lg-6">
+                   <%= form_for(@catvalue) do |f| %>
+                    <%= f.hidden_field :categories_id , :value => '2' %>
+                    <%= f.text_field :v_name, :class => "form-control" %>
+                  </div>
+                  <br /><br /><br />
+                  <%= f.submit 'Add' , :class => "btn btn-success btn-sm" %>
+                  <% end %>
+                </div>
+              </div>
+            <!-- Location code ends here -->
+
+            <!-- Team code starts here -->
+              <div class="tab-pane" id="team">
+                <div class="input-sm">
+                <p class="mypara">Add Team</p>
+                  <div class="col-lg-6">
+                   <%= form_for(@catvalue) do |f| %>
+                   <%= f.hidden_field :categories_id , :value => '3' %>
+                    <%= f.text_field :v_name, :class => "form-control"  %>
+                  </div>
+                  <br /><br /><br />
+                  <%= f.submit 'Add' , :class => "btn btn-success btn-sm" %>
+                  <% end %>
+                </div>
+              </div>
+
+            <!-- Team code ends here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+</body>
+</html>

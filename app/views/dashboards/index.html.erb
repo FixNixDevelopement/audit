@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <script>
+$(document).ready(function() {
+  $('#simple-menu').sidr();
+});
+</script>
+</head>
+<body>
+
+    <!-- Rendering menu  -->
+  <%= render :partial => "layouts/menu" %>
+
+  <div class="tabbable">
+    <div>
+      <ul class="nav nav-tabs">
+          <li class="active"><a href="#type" data-toggle="tab">Audit by type</a></li>
+          <li><a href="#location" data-toggle="tab">Audit by Location</a></li>
+          <li><a href="#department" data-toggle="tab">Audit by Department </a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div class="tab-pane active" id="type">
+        <%= render "by_type" %>
+        </div>
+        <div class="tab-pane" id="location">
+        <%= render "by_location" %>
+        </div>
+        <div class="tab-pane" id="department">
+        <%= render "by_dep" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

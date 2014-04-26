@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Configure</title>
+</head>
+<body>
+
+	<!-- Rendering menu  -->
+  	<%= render :partial => "layouts/menu" %>
+
+  	<!-- Main -->
+  	<div class="panel panel-primary">
+	 	  <div class="panel-heading">Settings</div>
+  	  <div class="panel-body" style="height:900px">
+        <div class="container offset well">
+          <ul class="nav nav-pills nav-stacked">
+            <div class="col-md-4">
+              <li class="<%= 'active' if params[:controller] == 'catvalues' %>"><a href="#">Categories and values</a></li>
+              <li><a href="#">User Management</a></li>
+            </div>
+          </ul>
+        </div>	
+   		</div>
+   	</div>
+
+</body>
+</html>

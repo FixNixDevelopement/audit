@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Scheduled Tasks</title>
+</head>
+<body>
+
+
+	<!-- Rendering menu  -->
+	<%= render :partial => "layouts/menu" %>
+
+	<!-- Main -->
+
+	<h1 class="myfont">Scheduled Tasks</h1>
+	<div class="container" , style="height:900px" >	
+
+		<% @auditinits.each do |auditinit| %>
+		<div class="panel panel-primary">
+
+			<div class="panel-heading">
+				<%= auditinit.title %>
+			</div>
+
+			<div class="panel-body">
+				Type : <%= auditinit.a_type %>
+				<br />
+				Start Date : <%= auditinit.start_date %>
+				<br />
+				End Date : <%= auditinit.end_date %>
+				<br />
+				<br />
+				<%= link_to 'Manage Audit', edit_auditinit_path(auditinit), :class =>"btn btn-default btn-sm pull-right"  %>
+				<%= link_to 'Review', auditinit  ,:class =>  "btn btn-default btn-sm pull-right"%>
+				<%= link_to 'Delete', auditinit, method: :delete, data: { confirm: 'Are you sure?' }, :class =>  "btn btn-default btn-sm pull-right" %>
+			</div>
+		</div>
+		<% end %>
+	</div>
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,21 @@
+            <div class="tab-pane" id="team">
+              <br />
+              <p class="mypara">Step 3 0f 4</p>
+<div class="form-inputs">
+    		  		  <div class="input-sm">
+          				<div class="col-lg-10">
+				  	    	  <%= f.label "Auditor Name" %>
+                    <%= f.collection_select :auditor_name  , @auditor, :name ,:name , {}, {:class =>  "drop-down"} %>
+
+				      	  </div>
+			          </div>
+    				  	<br/><br/>
+    				  	<div class="input-sm">
+         					<div class="col-lg-10">
+							      <%= f.label "Auditee Name" %>
+                    <%= f.collection_select :auditee_name  , @auditor, :name ,:name , {}, {:class =>  "drop-down"} %>
+      						</div>
+      			  	</div>
+      			  	<br/><br/>                 
+    			  	</div>
+              </div>
